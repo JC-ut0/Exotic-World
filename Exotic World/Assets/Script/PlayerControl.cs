@@ -29,10 +29,12 @@ public class PlayerControl : MonoBehaviour
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit, 100, movementMask))
+            if (Physics.Raycast(ray, out hit, 1000, movementMask))
             {
+                Debug.Log(hit.point);
+                Debug.Log(hit.collider.name);
                 motor.MoveToPoint(hit.point);
-                // stop forcusing any object 
+                // stop focusing any object 
             }
         }
     }
